@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dme5wkw7sr0fa"]
+[gd_scene load_steps=2 format=3 uid="uid://dme5wkw7sr0fa"]
+
+[ext_resource type="Script" path="res://Scenes/Main_Scene.gd" id="1_sccov"]
 
 [node name="Main Scene" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_sccov")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -46,3 +49,8 @@ text = "Logout"
 [node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/Passwords" to="." method="_on_passwords_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Logout" to="." method="_on_logout_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
