@@ -1,17 +1,19 @@
 extends Control
 
+var website
+var password
 var pass_length
 @onready var length_label = $PanelContainer/VBoxContainer/HBoxContainer5/Label2
 var char_list = "1234567890qwertyuiopasdfghjklzxcvbnm!@#$%^&*"
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	
 
 func _process(delta):
 	pass_length = $PanelContainer/VBoxContainer/HBoxContainer5/HSlider.value
 	length_label.text = str(pass_length)
+	website = $PanelContainer/VBoxContainer/HBoxContainer/Website.text
+	password = $PanelContainer/VBoxContainer/HBoxContainer2/Password.text
 
 func _on_generate_pressed():
 	var new_pass = generate_password(char_list, pass_length)
@@ -25,5 +27,17 @@ func generate_password(chars, length):
 		password += chars[randi()% n_char]
 	return password
 
+func _on_save_pressed():
+	export_to_dict()
+
+func export_to_dict() -> Dictionary:
+	return {
+		"age": website,
+		"character_name": password
+	}
+
 func _on_cancel_pressed():
 	$".".visible = false
+
+
+

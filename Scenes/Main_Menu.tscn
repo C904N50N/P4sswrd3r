@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu1c8xcd5gdm2"]
+[gd_scene load_steps=5 format=3 uid="uid://bu1c8xcd5gdm2"]
 
-[ext_resource type="Script" path="res://Scenes/Main_Menu.gd" id="1_dv6ob"]
+[ext_resource type="Script" path="res://Scripts/Main_Menu.gd" id="1_dv6ob"]
+[ext_resource type="Theme" uid="uid://87scm464s00h" path="res://Assets/Title_Theme.tres" id="2_gi18h"]
+[ext_resource type="Theme" uid="uid://yfg1iqwkk1d8" path="res://Scenes/LineEdit_Theme.tres" id="3_8dq7h"]
+[ext_resource type="Theme" uid="uid://cp3y0a08cy576" path="res://Scenes/Button.tres" id="4_u5mxj"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -35,6 +38,8 @@ alignment = 1
 [node name="Title" type="Label" parent="Menu"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("2_gi18h")
+theme_override_font_sizes/font_size = 90
 text = "P4sswrd4r"
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
@@ -43,11 +48,13 @@ theme_override_constants/margin_top = 80
 
 [node name="Password" type="HBoxContainer" parent="Menu"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+alignment = 1
 
 [node name="Insert Password" type="LineEdit" parent="Menu/Password"]
 layout_mode = 2
+theme = ExtResource("3_8dq7h")
 placeholder_text = "Enter Master Password"
 alignment = 1
 expand_to_text_length = true
@@ -57,6 +64,12 @@ caret_blink = true
 
 [node name="Enter" type="Button" parent="Menu/Password"]
 layout_mode = 2
+theme = ExtResource("4_u5mxj")
 text = "Enter"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 80
 
 [connection signal="pressed" from="Menu/Password/Enter" to="." method="_on_enter_pressed"]

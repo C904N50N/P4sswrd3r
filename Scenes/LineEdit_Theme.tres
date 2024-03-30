@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://yfg1iqwkk1d8"]
+
+[ext_resource type="FontFile" uid="uid://c5nbdm7fkxsxr" path="res://Assets/Sunny Spells Basic.ttf" id="1_wmk4x"]
+
+[resource]
+LineEdit/constants/caret_width = 2
+LineEdit/font_sizes/font_size = 20
+LineEdit/fonts/font = ExtResource("1_wmk4x")
