@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/Main_Menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+dict="*res://Dictionary.gd"
+
 [display]
 
 window/size/viewport_width=500

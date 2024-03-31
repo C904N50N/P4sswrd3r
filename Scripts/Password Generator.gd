@@ -1,10 +1,11 @@
 extends Control
 
+var dictionary = dict.passwords
 var website
 var password
 var pass_length
 @onready var length_label = $PanelContainer/VBoxContainer/HBoxContainer5/Label2
-var char_list = "1234567890qwertyuiopasdfghjklzxcvbnm!@#$%^&*"
+var char_list = "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM!@#$%^&*"
 
 func _ready():
 	randomize()
@@ -29,12 +30,12 @@ func generate_password(chars, length):
 
 func _on_save_pressed():
 	export_to_dict()
+	for key in dictionary:
+		var password = dictionary[key]
+		print(key, password)
 
-func export_to_dict() -> Dictionary:
-	return {
-		"age": website,
-		"character_name": password
-	}
+func export_to_dict():
+	dictionary[website] = password 
 
 func _on_cancel_pressed():
 	$".".visible = false
