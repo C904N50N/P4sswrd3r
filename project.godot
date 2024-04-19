@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-dict="*res://Dictionary.gd"
+dict="*res://Scripts/Dictionary.gd"
 
 [display]
 

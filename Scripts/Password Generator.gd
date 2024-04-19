@@ -1,6 +1,8 @@
 extends Control
 
-var dictionary = dict.passwords
+var dict_class = Dict.new()
+var pass_list = dict_class.load()
+var dictionary = pass_list
 var website
 var password
 var pass_length
@@ -18,7 +20,6 @@ func _process(delta):
 
 func _on_generate_pressed():
 	var new_pass = generate_password(char_list, pass_length)
-	
 	$PanelContainer/VBoxContainer/HBoxContainer2/Password.text = new_pass
 
 func generate_password(chars, length):
@@ -30,6 +31,7 @@ func generate_password(chars, length):
 
 func _on_save_pressed():
 	export_to_dict()
+	dict_class.save(pass_list)
 	for key in dictionary:
 		var password = dictionary[key]
 		print(key, password)
